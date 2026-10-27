@@ -1,0 +1,584 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lê Minh Nhật | Usagi's World ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root {
+  --pink: #e99cba;
+  --light: #fff4f8;
+  --dark: #533b50;
+  --purple: #c4b2e8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: var(--dark);
+  background: #fff8fb;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 10% 20%, #fce1ef, transparent 35%),
+    radial-gradient(circle at 90% 70%, #e9e1ff, transparent 35%);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff8f8e8;
+  backdrop-filter: blur(14px);
+  z-index: 100;
+  border-bottom: 1px solid #f5dce8;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 700;
+  color: #df83a8;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  margin-left: 22px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: #e38bad;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 130px 12% 70px;
+  gap: 45px;
+}
+
+.hero-text {
+  max-width: 540px;
+  animation: appear 1s ease;
+}
+
+.tag {
+  display: inline-block;
+  background: white;
+  border: 1px solid #f4d2e1;
+  padding: 9px 17px;
+  border-radius: 30px;
+  font-size: 12px;
+  color: #d77fa2;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(45px, 6vw, 76px);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 span {
+  color: #e99cba;
+  font-style: italic;
+}
+
+.student-number {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 9px 18px;
+  border: 1px solid #f3c5d9;
+  border-radius: 30px;
+  background: #fff0f6;
+  color: #d77fa2;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero-text p.description {
+  margin-top: 23px;
+  line-height: 1.9;
+  color: #8e788d;
+  max-width: 430px;
+  font-size: 15px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 26px;
+  background: #e99cba;
+  color: white;
+  text-decoration: none;
+  border-radius: 35px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px #e99cba45;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  background: #d980a3;
+}
+
+.hero-art {
+  width: 350px;
+  height: 390px;
+  flex-shrink: 0;
+  border-radius: 48% 48% 35% 35%;
+  background: linear-gradient(145deg, #ffe4ef, #e8defd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 25px 60px #d8b5d42e;
+  animation: float 4s ease-in-out infinite;
+}
+
+.bunny {
+  font-size: 150px;
+  filter: drop-shadow(0 12px 10px #c08ba044);
+}
+
+.floating {
+  position: absolute;
+  font-size: 28px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.star1 { top: 45px; left: 38px; }
+.star2 { right: 30px; top: 100px; animation-delay: .7s; }
+.star3 { bottom: 65px; left: 45px; animation-delay: 1.2s; }
+
+.scroll-note {
+  text-align: center;
+  font-size: 11px;
+  color: #b59bad;
+  letter-spacing: 3px;
+  padding-bottom: 25px;
+}
+
+section:not(.hero) {
+  padding: 100px 12%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-heading small {
+  color: #df8bab;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 46px);
+  margin-top: 12px;
+}
+
+.section-heading p {
+  margin-top: 12px;
+  color: #a18b9e;
+  font-size: 14px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  padding: 30px 24px;
+  background: #ffffffc9;
+  border: 1px solid #f3dce8;
+  border-radius: 25px;
+  text-align: center;
+  transition: .35s;
+  box-shadow: 0 8px 30px #b990ae0a;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px #dbaac52b;
+}
+
+.card .icon {
+  font-size: 39px;
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #99859a;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.favorites {
+  background: #fff0f6;
+  border-radius: 45px;
+  margin: 0 3%;
+}
+
+.favorite-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.favorite {
+  border-radius: 25px;
+  overflow: hidden;
+  background: white;
+  transition: .3s;
+}
+
+.favorite:hover {
+  transform: scale(1.03);
+}
+
+.favorite-art {
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 75px;
+  background: linear-gradient(135deg, #ffe0ed, #eee5ff);
+}
+
+.favorite:nth-child(2) .favorite-art {
+  background: linear-gradient(135deg, #e4e7ff, #ffe8f1);
+}
+
+.favorite:nth-child(3) .favorite-art {
+  background: linear-gradient(135deg, #fff0d8, #f7dcec);
+}
+
+.favorite-info {
+  padding: 23px;
+}
+
+.favorite-info h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.favorite-info p {
+  color: #a18b9e;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.quote {
+  text-align: center;
+  padding: 90px 15% !important;
+}
+
+.big-heart {
+  font-size: 38px;
+}
+
+.quote blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 4vw, 37px);
+  font-style: italic;
+  line-height: 1.6;
+  margin: 25px auto;
+}
+
+.quote p {
+  color: #c48ba6;
+  font-size: 13px;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 15px;
+  border-top: 1px solid #f3dce8;
+  color: #aa8da2;
+  font-size: 12px;
+  line-height: 2;
+}
+
+footer span {
+  color: #e58eaf;
+}
+
+#hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  font-size: 22px;
+  animation: rise 1.5s ease-out forwards;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(0) scale(.5);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-130px) scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-13px); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 800px) {
+  nav { padding: 16px 5%; }
+  nav a { margin-left: 9px; font-size: 10px; }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 130px 7% 60px;
+  }
+
+  .hero-text p.description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-art {
+    width: 280px;
+    height: 310px;
+  }
+
+  .bunny { font-size: 120px; }
+
+  .about-grid, .favorite-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section:not(.hero) { padding: 75px 7%; }
+  .favorites { margin: 0 2%; }
+  .quote { padding: 75px 8% !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<nav>
+  <div class="logo">♡ USAGI</div>
+  <div>
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#favorites">FAVORITES</a>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-text">
+    <div class="tag">🐰 WELCOME TO MY LITTLE WORLD</div>
+
+    <h1>Hello, I'm<br><span>Lê Minh Nhật.</span></h1>
+
+    <div class="student-number">✦ HỌC SINH · SỐ 30 ✦</div>
+
+    <p class="description">
+      Chào mừng đến với thế giới nhỏ của tao!
+      Tao là Lê Minh Nhật, số 30.
+      Đây là góc riêng lưu giữ sở thích,
+      những ước mơ và những điều làm tao vui.
+      Rất vui vì mày đã ghé thăm! ♡
+    </p>
+
+    <a href="#about" class="btn">Khám phá thế giới của tao ♡</a>
+  </div>
+
+  <div class="hero-art">
+    <span class="floating star1">✧</span>
+    <span class="floating star2">♡</span>
+    <span class="floating star3">✦</span>
+    <div class="bunny">🐰</div>
+  </div>
+</header>
+
+<div class="scroll-note">SCROLL TO EXPLORE ↓</div>
+
+<section id="about">
+  <div class="section-heading">
+    <small>✿ A LITTLE ABOUT ME ✿</small>
+    <h2>Get to know me</h2>
+    <p>Một chút về Lê Minh Nhật.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="card">
+      <div class="icon">🎀</div>
+      <h3>Who am I?</h3>
+      <p>Tao là Lê Minh Nhật, học sinh số 30. Đây là website giới thiệu bản thân mang phong cách Usagi dễ thương.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌷</div>
+      <h3>My personality</h3>
+      <p>Tao luôn muốn khám phá những điều mới, tận hưởng những khoảnh khắc vui vẻ và tạo ra kỷ niệm đáng nhớ.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌙</div>
+      <h3>My dream</h3>
+      <p>Không ngừng học hỏi, theo đuổi ước mơ và trở thành phiên bản tốt hơn của chính mình mỗi ngày.</p>
+    </div>
+  </div>
+</section>
+
+<section class="favorites" id="favorites">
+  <div class="section-heading">
+    <small>♡ THINGS I LOVE ♡</small>
+    <h2>My little universe</h2>
+    <p>Những điều làm cuộc sống trở nên thú vị hơn.</p>
+  </div>
+
+  <div class="favorite-grid">
+    <div class="favorite">
+      <div class="favorite-art">🎧</div>
+      <div class="favorite-info">
+        <h3>Music & Chill</h3>
+        <p>Âm nhạc, những giai điệu yêu thích và khoảng thời gian thư giãn sau một ngày dài.</p>
+      </div>
+    </div>
+
+    <div class="favorite">
+      <div class="favorite-art">🐇</div>
+      <div class="favorite-info">
+        <h3>Usagi World</h3>
+        <p>Những chú thỏ trắng, màu pastel, phong cách Nhật Bản và thế giới đáng yêu.</p>
+      </div>
+    </div>
+
+    <div class="favorite">
+      <div class="favorite-art">🌌</div>
+      <div class="favorite-info">
+        <h3>Dream & Night</h3>
+        <p>Bầu trời đầy sao, những ý tưởng mới và các mục tiêu cho tương lai.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="big-heart">♡</div>
+  <blockquote>
+    "Even the smallest bunny<br>
+    deserves a world full of love."
+  </blockquote>
+  <p>— LÊ MINH NHẬT · NUMBER 30 —</p>
+  <a href="#home" class="btn">Back to the top ↑</a>
+</section>
+
+<footer>
+  <p>Made with <span>♡</span> by Lê Minh Nhật.</p>
+  <p>© 2026 — <span>Usagi's World</span> · Number 30 🐰</p>
+</footer>
+
+<script>
+document.addEventListener("click", function(event) {
+  const heart = document.createElement("span");
+  heart.className = "heart";
+
+  const symbols = ["♡", "♥", "✧", "🌸"];
+  heart.textContent =
+    symbols[Math.floor(Math.random() * symbols.length)];
+
+  heart.style.left = event.clientX + "px";
+  heart.style.top = event.clientY + "px";
+  heart.style.color =
+    Math.random() > 0.5 ? "#e99cba" : "#bca5e8";
+
+  document.getElementById("hearts").appendChild(heart);
+
+  setTimeout(() => heart.remove(), 1500);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.animate(
+        [
+          { opacity: 0, transform: "translateY(25px)" },
+          { opacity: 1, transform: "translateY(0)" }
+        ],
+        {
+          duration: 700,
+          fill: "forwards",
+          easing: "ease-out"
+        }
+      );
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".card, .favorite").forEach(el => {
+  el.style.opacity = "0";
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
